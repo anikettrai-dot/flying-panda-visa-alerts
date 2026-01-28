@@ -63,6 +63,24 @@ npm run dev
 
 ---
 
+---
+
+## 🌐 Deployment
+
+### Frontend (Vercel)
+1. Import your repository into Vercel.
+2. **CRITICAL**: In the "Build & Development Settings" section, set the **Root Directory** to `client`.
+3. Vercel will automatically detect Vite and use `npm run build` as the build command.
+4. Environment Variables: Set `VITE_API_URL` to your deployed backend URL.
+
+### Backend (Render / Railway / Render)
+1. Since the backend is a Node/Express server, it is best hosted on services like Render or Railway.
+2. Root directory: `server`.
+3. Build command: `npm install`.
+4. Start command: `node index.js`.
+
+---
+
 ## 🔮 Future Improvements (Production)
 1.  **Database**: Integrate PostgreSQL or MongoDB for persistent storage.
 2.  **Authentication**: Secure JWT-based member login system.
