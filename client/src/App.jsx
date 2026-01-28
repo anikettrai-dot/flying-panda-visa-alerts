@@ -13,7 +13,7 @@ import LoadingSpinner from './components/LoadingSpinner';
 import ThemeToggle from './components/ThemeToggle';
 import { setupKeyboardShortcuts } from './utils/keyboard';
 
-const API_URL = 'http://localhost:5000/alerts';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/alerts';
 
 function App() {
   const [alerts, setAlerts] = useState([]);
