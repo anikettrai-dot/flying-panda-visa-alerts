@@ -13,9 +13,21 @@ import LoadingSpinner from './components/LoadingSpinner';
 import ThemeToggle from './components/ThemeToggle';
 import { setupKeyboardShortcuts } from './utils/keyboard';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/alerts';
+// Robust API URL handling
+const getApiUrl = () => {
+  let url = import.meta.env.VITE_API_URL || 'http://localhost:5000/alerts';
+  // Ensure it's a full URL
+  if (url && !url.startsWith('http')) {
+    url = `https://${url}`;
+  }
+  return url;
+};
+
+const API_URL = getApiUrl();
 
 function App() {
+  console.log('Checking API connection at:', API_URL);
+
   const [alerts, setAlerts] = useState([]);
   const [stats, setStats] = useState({ total: 0, active: 0, booked: 0, expired: 0 });
   const [filter, setFilter] = useState({ country: '', status: '' });
